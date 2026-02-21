@@ -11,8 +11,10 @@ import urllib.request
 import os
 
 # --- Config ---
-API_KEY = "mlsn.8cc47c7c3222bb56b05e54e283f9ca74e7d85525f14967ab7cd7ed1cb00b3bf4"
-FROM_EMAIL = "hello@deckdrop.io"
+API_KEY = os.environ.get("MAILERSEND_API_KEY", "")
+if not API_KEY:
+    raise SystemExit("Set MAILERSEND_API_KEY env var first")
+FROM_EMAIL = "alex@deckdrop.io"
 FROM_NAME = "MedCircle"
 TO_EMAIL = "alexmohseni@gmail.com"
 TO_NAME = "Alex Mohseni"
